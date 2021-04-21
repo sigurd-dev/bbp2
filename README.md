@@ -1,5 +1,6 @@
 # bbp2
 bbp2 - helper program to make Basler Binary Protocol version 2 serial commands.<br>
+These commands are the again fed to compatible Basler Cameras for specific behavor.<br>  
 Useful for newer Basler camera link cameras.<br>
 Code written in Lazarus IDE.
 <br><br>
