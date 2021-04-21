@@ -7,5 +7,4 @@ Code written in Lazarus IDE.
 <br>
 
 Included is rpm made on CentOS 7
-
 It should compile fine in Windows as well
