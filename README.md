@@ -7,5 +7,5 @@ Code written in Lazarus IDE.
 <img src="bbp2pic.png">
 <br>
 
-Included is rpm made on CentOS 7
-It should compile fine in Windows as well
+Included is rpm made in CentOS 7.
+It should compile fine in Windows as well.
