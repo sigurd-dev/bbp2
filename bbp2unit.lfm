@@ -1,0 +1,641 @@
+object Form1: TForm1
+  Left = 521
+  Height = 380
+  Top = 198
+  Width = 712
+  BorderStyle = bsSingle
+  Caption = 'Basler Binary Protocol II'
+  ClientHeight = 352
+  ClientWidth = 712
+  Icon.Data = {
+    BE1000000000010001002020000001002000A810000016000000280000002000
+    0000400000000100200000000000001000006400000064000000000000000000
+    00000000000000000000000000000000000000000000413D39031312101D0000
+    0032000000380000003800000038000000380000003800000038000000380000
+    00380000003800000038000000380000003800000037020202290908080E0000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000007A716C1258514A99615851D56C64
+    5DE06B635DE26B635DE36B635DE36B635DE36B645DE36B645DE36B645DE36C64
+    5DE36C645EE36C645EE36C645EE369615BDF4D4741C91B18168C000000550302
+    022C0E0E0D060000000000000000000000000000000000000000000000000000
+    000000000000000000000000000089817B06756A62D0A6A29EFFC9C9C9FFCBCB
+    CBFFCDCDCDFFCFCFCFFFD1D1D1FFD3D3D3FFD5D5D5FFD8D8D8FFDADADAFFDCDC
+    DCFFDEDEDEFFDFDFDFFFE0E0E0FFE0E0E0FFADAAA8FE9C9691FE615C58D20A09
+    0878000000420C0B0A1000000000000000000000000000000000000000000000
+    0000000000000000000000000000867D764498928DFFCBCBCBFFCCCCCCFFCCCC
+    CCFFCFCFCFFFD3D3D3FFD8D8D8FFDDDDDDFFE2E2E2FFE6E6E6FFEBEBEBFFF0F0
+    F0FFF4F4F4FFF6F6F6FFF7F7F7FFF8F8F8FFC4C4C4FF8B8682FFCDCDCDFF938F
+    8BF11E1B19960000005008070716000000000000000000000000000000000000
+    0000000000000000000000000000857C7563B0ADAAFFCBCBCBFFA3A3A3FFA4A4
+    A4FFCCCCCCFFD4D4D4FFB2B2B2FFB0B0B0FFDDDDDDFFE7E7E7FFC7C7C7FFBCBC
+    BCFFEDEDEDFFF0F0F0FFC1C1C1FFBEBEBEFF9A9A9AFF84807CFFDBDBDBFFCECE
+    CEFFAFACA9FB2C2926A7000000560908081A0000000000000000000000000000
+    000000000000000000000000000089807A63B4B1AFFF818181FF656565FF4848
+    48FFA0A0A0FF969696FF626262FF555555FFA1A1A1FFB3B3B3FF626262FF6666
+    66FFA0A0A0FFE3E3E3FF7B7B7BFF393939FF8A8A8AFF837F7BFFEAEAEAFFDCDC
+    DCFFCDCDCDFFB6B4B2FD36322FAF000000570808071700000000000000000000
+    00000000000000000000000000008B827C63B6B3B1FF464646FFBDBDBDFF9797
+    97FF6B6B6BFF4F4F4FFFC2C2C2FFB4B4B4FF636363FF656565FFC6C6C6FFD7D7
+    D7FF595959FFF6F6F6FFD0D0D0FF5F5F5FFFB1B1B1FF84807CFFF4F4F4FFEDED
+    EDFFDADADAFFCDCDCDFFB7B5B3FD2D2A27A8000000510B0A0A10000000000000
+    00000000000000000000000000008B837C63B8B5B3FF444444FFBBBBBBFFA0A0
+    A0FF676767FF4B4B4BFFC2C2C2FFBEBEBEFF5F5F5FFF5B5B5BFFCACACAFFE1E1
+    E1FF545454FFF6F6F6FFD0D0D0FF676767FFCACACAFF928E8AFFF9F9F9FFF7F7
+    F7FFECECECFFD9D9D9FFCCCCCCFFB0ADABFC211E1B99000000440F0E0D070000
+    00000000000000000000000000008C837D63BBB8B6FF5A5A5AFF939393FF6D6D
+    6DFF959595FF6A6A6AFF909090FF858585FF919191FF868686FF8D8D8DFFA1A1
+    A1FF8C8C8CFFE6E6E6FF9F9F9FFF686868FFF1F1F1FFC6C4C3FFD5D2D0FFFBFB
+    FBFFF6F6F6FFEAEAEAFFD7D7D7FFCCCCCCFF989490F30C0B0A7C0303032F0000
+    00000000000000000000000000008D847E63BDBAB8FFBEBEBEFF656565FF7C7C
+    7CFFCECECEFFCACACAFF6E6E6EFF7E7E7EFFDFDFDFFFE0E0E0FF7D7D7DFF8282
+    82FFEFEFEFFFDEDEDEFF838383FFB3B3B3FFF8F8F8FFF9F9F9FFC9C5C2FFDFDC
+    DBFFF8F8F8FFF1F1F1FFE3E3E3FFD2D2D2FFCBCBCBFF6C6762D9000000590B0A
+    0A100000000000000000000000008E857F63C0BDBAFFCBCBCBFFC6C6C6FFC6C6
+    C6FFC9C9C9FFD1D1D1FFD4D4D4FFD4D4D4FFDFDFDFFFE4E4E4FFE3E3E3FFE7E7
+    E7FFEDEDEDFFF5F5F5FFF5F5F5FFEEEEEEFFF7F7F7FFF8F8F8FFF8F8F8FFD1CE
+    CCFFC4C0BCFFC2BEBAFFBFBBB8FFB5B1AEFFB6B2AEFFA49F9BFF221F1D980403
+    032F0000000000000000000000008E867F63C2BFBDFF9D9D9DFF3E3E3EFF3F3F
+    3FFF9F9F9FFFB8B8B8FF515151FF4E4E4EFFBEBEBEFFC0C0C0FF4E4E4EFF4343
+    43FFA6A6A6FFE5E5E5FF626262FF575757FFC2C2C2FFF0F0F0FF696969FF5858
+    58FFB8B8B8FFF5F5F5FF6E6E6EFF5A5A5AFFABABABFFCDCBC9FE5E5650D80000
+    00420000000000000000000000008F868063C5C2BFFFCCCCCCFF7D7D7DFF8383
+    83FFCCCCCCFF5A5A5AFFB1B1B1FF999999FF737373FFE0E0E0FFACACACFF7676
+    76FFECECECFF888888FFADADADFFD1D1D1FF5E5E5EFFA0A0A0FF9D9D9DFFE3E3
+    E3FF4F4F4FFFB2B2B2FF8A8A8AFFEDEDEDFF484848FFE1E1E1FF847D76F20000
+    004300000000000000000000000090888163C7C4C2FFCCCCCCFF7D7D7DFF8989
+    89FFD8D8D8FF4C4C4CFFCCCCCCFFC1C1C1FF5E5E5EFFE5E5E5FFAEAEAEFF7676
+    76FFEAEAEAFF676767FFC5C5C5FFEFEFEFFF444444FF7F7F7FFFB7B7B7FFF6F6
+    F6FF444444FF8E8E8EFFA4A4A4FFF6F6F6FF494949FFDCDCDCFF877F79F70000
+    004300000000000000000000000092898363CAC7C5FFE8E8E8FF8F8F8FFF9E9E
+    9EFFF1F1F1FF5F5F5FFFC4C4C4FFB5B5B5FF7B7B7BFFEAEAEAFFAAAAAAFF7777
+    77FFECECECFF7B7B7BFFA8A8A8FFD8D8D8FF5D5D5DFF919191FF9A9A9AFFECEC
+    ECFF515151FFA5A5A5FF888888FFF2F2F2FF4A4A4AFFE1E1E1FF877F79F70000
+    0043000000000000000000000000938A8463CDCAC8FFADADADFF383838FFAEAE
+    AEFFF4F4F4FFC0C0C0FF4B4B4BFF515151FFD7D7D7FFB9B9B9FF3F3F3FFF8787
+    87FFEBEBEBFFD0D0D0FF4A4A4AFF4E4E4EFFC7C7C7FFDDDDDDFF4E4E4EFF4F4F
+    4FFFBDBDBDFFE7E7E7FF505050FF515151FFAEAEAEFFDFDFDFFF877F79F70000
+    0043000000000000000000000000948B8563CFCCCAFFF8F8F8FFF7F7F7FFF6F6
+    F6FFF6F6F6FFF4F4F4FFF1F1F1FFEFEFEFFFEEEEEEFFEDEDEDFFECECECFFEBEB
+    EBFFEBEBEBFFEBEBEBFFEBEBEBFFEBEBEBFFECECECFFECECECFFEDEDEDFFECEC
+    ECFFECECECFFECECECFFECECECFFEAEAEAFFEAEAEAFFDDDDDDFF867F78F70000
+    0043000000000000000000000000948C8563D1CECCFFD5D5D5FF8B8B8BFF8A8A
+    8AFFCACACAFFD9D9D9FF888888FF878787FFBEBEBEFFEEEEEEFF9B9B9BFF9090
+    90FFDCDCDCFFEAEAEAFFA2A2A2FF8A8A8AFFD8D8D8FFDEDEDEFF898989FF8484
+    84FFA3A3A3FFE2E2E2FF898989FF818181FF9A9A9AFFDADADAFF867F78F60000
+    0043000000000000000000000000958C8663D2CFCDFFE4E4E4FF797979FF7F7F
+    7FFFE9E9E9FFE5E5E5FF848484FF717171FFE1E1E1FF9A9A9AFF888888FF8080
+    80FF8B8B8BFFA8A8A8FF757575FF8E8E8EFF777777FFE1E1E1FFA3A3A3FF4343
+    43FFCCCCCCFFE2E2E2FFABABABFF373737FFC4C4C4FFD7D7D7FF867E78F60000
+    0043000000000000000000000000958C8663D3D0CDFFFAFAFAFF999999FFA1A1
+    A1FFF8F8F8FFF7F7F7FFA7A7A7FF909090FFF4F4F4FF5F5F5FFFD2D2D2FFD5D5
+    D5FF575757FF6C6C6CFFBDBDBDFFE1E1E1FF434343FFE6E6E6FFCBCBCBFF5454
+    54FFE2E2E2FFE2E2E2FFD6D6D6FF444444FFDCDCDCFFD4D4D4FF867E78F60000
+    0043000000000000000000000000958D8663D3D0CEFFFBFBFBFF9A9A9AFFA1A1
+    A1FFF9F9F9FFF8F8F8FFA7A7A7FF909090FFF6F6F6FF606060FFCFCFCFFFD7D7
+    D7FF5D5D5DFF6D6D6DFFB8B8B8FFE1E1E1FF484848FFE6E6E6FFCACACAFF5353
+    53FFE0E0E0FFDEDEDEFFD3D3D3FF434343FFD7D7D7FFD2D2D2FF867E78F60000
+    0043000000000000000000000000968D8763D4D1CEFFC3C3C3FF585858FFA3A3
+    A3FFFAFAFAFFC8C8C8FF5F5F5FFF919191FFF7F7F7FF9D9D9DFF777777FF7979
+    79FFA6A6A6FFA9A9A9FF646464FF818181FF8E8E8EFFCECECEFF727272FF5454
+    54FFDFDFDFFFCCCCCCFF757575FF434343FFD6D6D6FFCFCFCFFF867E78F60000
+    0043000000000000000000000000968D8763D4D1CFFFE7E7E7FFAFAFAFFFE6E6
+    E6FFFAFAFAFFE8E8E8FFAEAEAEFFDEDEDEFFF7F7F7FFF6F6F6FFABABABFFB5B5
+    B5FFF2F2F2FFF0F0F0FFAEAEAEFFA6A6A6FFE8E8E8FFDFDFDFFFA7A7A7FFB9B9
+    B9FFDFDFDFFFD6D6D6FFA2A2A2FFAAAAAAFFD4D4D4FFCFCFCFFF867E78F60000
+    0043000000000000000000000000968D8763D5D2D0FFFDFDFDFFF0F0F0FFE6E6
+    E6FFFBFBFBFFFAFAFAFFE4E4E4FFE3E3E3FFE9E9E9FFF7F7F7FFEDEDEDFFDFDF
+    DFFFF3F3F3FFF2F2F2FFDEDEDEFFD9D9D9FFD9D9D9FFE8E8E8FFD6D6D6FFCFCF
+    CFFFCECECEFFDDDDDDFFD4D4D4FFC1C1C1FFCECECEFFCFCFCFFF867E77F50000
+    0043000000000000000000000000968D8763D5D2D0FFBFBFBFFF606060FF5454
+    54FFD1D1D1FFCECECEFF505050FF444444FFC1C1C1FFD2D2D2FF575757FF5656
+    56FFB6B6B6FFDADADAFF5B5B5BFF353535FFA7A7A7FFD9D9D9FF5E5E5EFF2D2D
+    2DFF979797FFD6D6D6FF4E4E4EFF565656FF7F7F7FFFD0D0D0FF857D77F50000
+    0042000000000000000000000000968D8763D6D3D0FF5D5D5DFFE9E9E9FFB3B3
+    B3FF898989FFFCFCFCFFAEAEAEFF8E8E8EFFFAFAFAFF727272FFCBCBCBFFD0D0
+    D0FF646464FFF6F6F6FFCACACAFF696969FFF0F0F0FFEEEEEEFFD2D2D2FF5656
+    56FFE5E5E5FF979797FF8A8A8AFFDADADAFF3D3D3DFFCDCDCDFF857D77F50000
+    0042000000000000000000000000958C8563D7D4D1FF545454FFECECECFFC9C9
+    C9FF7A7A7AFFFDFDFDFFAFAFAFFF8F8F8FFFFBFBFBFF5E5E5EFFDBDBDBFFE6E6
+    E6FF555555FFF7F7F7FFCBCBCBFF6A6A6AFFF3F3F3FFF0F0F0FFD4D4D4FF5757
+    57FFE9E9E9FF858585FF9A9A9AFFE0E0E0FF414141FFCECECEFF857D77F40000
+    003A0000000000000000000000008F867F60CECAC7FF626262FFCECECEFFA3A3
+    A3FFA4A4A4FFF9F9F9FF9E9E9EFF909090FFFBFBFBFF7E7E7EFFAFAFAFFFC1C1
+    C1FF7D7D7DFFF5F5F5FFB8B8B8FF6A6A6AFFF5F5F5FFF1F1F1FFC3C3C3FF5858
+    58FFECECECFFA5A5A5FF757575FFD3D3D3FF4C4C4CFFD2D2D2FF7E756EEF0B0A
+    0A25000000000000000000000000938A83349C948EFFD6D6D6FF626262FF7474
+    74FFFAFAFAFFC1C1C1FF585858FFB6B6B6FFFCFCFCFFE7E7E7FF656565FF6767
+    67FFEAEAEAFFD1D1D1FF5C5C5CFF999999FFF6F6F6FFD7D7D7FF5D5D5DFF8A8A
+    8AFFEEEEEEFFE8E8E8FF6B6B6BFF595959FFB8B8B8FFBAB8B7FF665D55C34E4A
+    4706000000000000000000000000000000007A6F68A1A39C96FFDDDAD8FFEAE9
+    E7FFEAE9E7FFE9E8E7FFE9E7E6FFE8E7E5FFE7E6E5FFE7E5E4FFE6E5E4FFE6E4
+    E3FFE5E4E2FFE3E2E1FFE1DFDEFFDFDDDCFFDCDBD9FFDAD8D7FFD7D6D4FFD4D3
+    D1FFD2D0CFFFCECDCCFFCCCAC9FFC3C2C0FFABA7A3FF7B7169F27F7872360000
+    000000000000000000000000000000000000000000008C847D4E847B7484857B
+    738B867C748B867D758B867C748B867C748B867C748B857C748B857C748B857C
+    748B857C738B857B738B857B738B847B738B847B738B847A728B837A728B8379
+    718B8279718B8278708B8178708B7F766E8B837A737289817B1F000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000
+  }
+  Menu = MainMenu
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
+  object Edit_BFS: TEdit
+    Left = 23
+    Height = 37
+    Hint = 'Binary Frame Start field'#10'Identifies the start of a binary frame.'#10'Size = 1 byte'#10'The value of the BFS byte is always 0x01.'
+    Top = 40
+    Width = 35
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 0
+    Text = '01'
+  end
+  object Label_BFS: TLabel
+    Left = 24
+    Height = 20
+    Top = 20
+    Width = 26
+    Caption = 'BFS'
+    ParentColor = False
+  end
+  object Edit_FTF: TEdit
+    Left = 79
+    Height = 37
+    Hint = 'Frame Type and Format field'#10'Identifies the frame type and format.'#10'Size = 1 byte'#10'The bits in the FTF field are assigned as follows:'#10#10' OpCode    BCC-Code    AddrLen'#10'7 6 5 4 3           2               1 0 '#10#10'The MSB of the FTF field is on the left (highest bit of the OpCode) and the LSB of the'#10'field is on the right (lowest bit of the address length).'#10'The value in the OpCode portion of the FTF field defines the function of the binary'#10'command, that is, whether it is a read command or a write command.'
+    Top = 40
+    Width = 33
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 1
+    Text = '01'
+  end
+  object Label_FTF: TLabel
+    Left = 80
+    Height = 20
+    Top = 20
+    Width = 24
+    Caption = 'FTF'
+    ParentColor = False
+  end
+  object GroupBox_FTF_BinaryCode: TGroupBox
+    Left = 16
+    Height = 105
+    Top = 80
+    Width = 360
+    Caption = 'FTF Binary Code'
+    ClientHeight = 84
+    ClientWidth = 358
+    TabOrder = 2
+    object Label_textopcode: TLabel
+      Left = 16
+      Height = 20
+      Top = 4
+      Width = 56
+      Caption = 'OpCode:'
+      ParentColor = False
+    end
+    object ComboBox_OpCode: TComboBox
+      Left = 16
+      Height = 32
+      Hint = 'The value in the OpCode portion of the FTF field defines the function of the binary'#10'command, that is, whether it is a read command or a write command. The following'#10'OpCodes are available:'#10'OpCode  Function'#10'0b00000 This is a write command used to write a single setting to the camera.'#10'0b00001 This is a read command used to read a single setting from the camera.'#10'0b00010 This is a read response frame without an address field.'#10'               (The AddrLen bits are "don’t care").'#10
+      Top = 24
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        '00000'
+        '00001'
+        '00010'
+      )
+      OnChange = ComboBox_OpCodeChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label_OpCode: TLabel
+      Left = 16
+      Height = 20
+      Top = 58
+      Width = 94
+      Caption = 'Label_OpCode'
+      ParentColor = False
+    end
+    object Label_textbcccode: TLabel
+      Left = 128
+      Height = 20
+      Top = 4
+      Width = 68
+      Caption = 'BCC-code:'
+      ParentColor = False
+    end
+    object ComboBox_BCCcode: TComboBox
+      Left = 128
+      Height = 32
+      Hint = 'The BCC-Code portion of the FTF field indicates the presence of a Block Check'#10'Character (BCC). The use of a BCC is optional.'#10'BCC-Code Function'#10'0b0           This frame (and also the response frame) contains no BCC field.'#10'0b1           This frame (and also the response frame) contains a BCC field.'
+      Top = 24
+      Width = 88
+      ItemHeight = 0
+      Items.Strings = (
+        '0'
+        '1'
+      )
+      OnChange = ComboBox_BCCcodeChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object Label_BCBcode: TLabel
+      Left = 128
+      Height = 20
+      Top = 58
+      Width = 100
+      Caption = 'Label_BCBcode'
+      ParentColor = False
+    end
+    object Label_textaddrlen: TLabel
+      Left = 230
+      Height = 20
+      Top = 4
+      Width = 57
+      Caption = 'AddrLen:'
+      ParentColor = False
+    end
+    object ComboBox_AddrLen: TComboBox
+      Left = 229
+      Height = 32
+      Hint = 'The AddrLen portion of the FTF field indicates the size of the register address to which'#10'the command is being sent.'#10'AddrLen Length of the Address Field'#10'0b00      16 bits (= 2 bytes)'#10'0b01      32 bits (= 4 bytes)'#10'0b10      48 bits (= 6 bytes)'#10'0b11      64 bits (= 8 bytes)'#10
+      Top = 24
+      Width = 88
+      ItemHeight = 0
+      Items.Strings = (
+        '00'
+        '01'
+        '10'
+        '11'
+      )
+      OnChange = ComboBox_AddrLenChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object Label_AddrLen: TLabel
+      Left = 230
+      Height = 20
+      Top = 58
+      Width = 95
+      Caption = 'Label_AddrLen'
+      ParentColor = False
+    end
+  end
+  object Edit_DataLen: TEdit
+    Left = 128
+    Height = 37
+    Hint = 'Data Length field'#10'For read commands, the DataLen field indicates the number of bytes to read from the'#10'given register address.'#10'For write commands, the DataLen field indicates the number of bytes contained in the'#10'Data field.'#10'Size = 1 byte'#10'Range of possible settings: 0 to 255.'#10'DataLen = 0 will result in an ACK, but no further command will be executed.'#10#10'Set value in Groupbox ''Data Lenght Value'''
+    Top = 40
+    Width = 32
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+    Text = '04'
+  end
+  object Label_DataLen: TLabel
+    Left = 128
+    Height = 20
+    Top = 20
+    Width = 52
+    Caption = 'DataLen'
+    ParentColor = False
+  end
+  object GroupBox_DataLen: TGroupBox
+    Left = 400
+    Height = 104
+    Top = 80
+    Width = 145
+    Caption = 'Data Lenght Value'
+    ClientHeight = 83
+    ClientWidth = 143
+    TabOrder = 4
+    object ComboBox_DataLen: TComboBox
+      Left = -56
+      Height = 36
+      Hint = 'Data Length field'#10'For read commands, the DataLen field indicates the number of bytes to read from the'#10'given register address.'#10'For write commands, the DataLen field indicates the number of bytes contained in the'#10'Data field.'#10'Size = 1 byte'#10'Range of possible settings: 0 to 255.'#10'DataLen = 0 will result in an ACK, but no further command will be executed.'
+      Top = 24
+      Width = 100
+      ItemHeight = 0
+      OnChange = ComboBox_DataLenChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 0
+      Visible = False
+    end
+    object Label_textDataLen: TLabel
+      Left = 16
+      Height = 20
+      Top = 4
+      Width = 100
+      Caption = 'DataLen  Bytes:'
+      ParentColor = False
+    end
+    object SpinEdit_datalen: TSpinEdit
+      Left = 16
+      Height = 37
+      Hint = 'For read commands, the DataLen field indicates the number of bytes to read from the'#10'given register address.'#10'For write commands, the DataLen field indicates the number of bytes contained in the'#10'Data field.'#10'Size = 1 byte'#10'Range of possible settings: 0 to 255.'#10'DataLen = 0 will result in an ACK, but no further command will be executed.'
+      Top = 27
+      Width = 98
+      MaxValue = 255
+      OnChange = SpinEdit_datalenChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Value = 4
+    end
+    object Label_decimal1: TLabel
+      Left = 16
+      Height = 20
+      Top = 62
+      Width = 51
+      Caption = 'Decimal'
+      ParentColor = False
+    end
+  end
+  object Label_Address: TLabel
+    Left = 192
+    Height = 20
+    Top = 21
+    Width = 52
+    Caption = 'Address'
+    ParentColor = False
+  end
+  object Edit_Addresshex: TEdit
+    Left = 192
+    Height = 37
+    Hint = 'Address field'#10'For read commands, indicates the register address for the read.'#10'For write commands, indicates the register address for the write.'#10'Size = Number of bytes indicated in the AddrLen portion of the FTF field'
+    Top = 40
+    Width = 144
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 5
+    Text = '00000000'
+  end
+  object GroupBox_Address: TGroupBox
+    Left = 16
+    Height = 137
+    Top = 200
+    Width = 264
+    Caption = 'Set Address'
+    ClientHeight = 116
+    ClientWidth = 262
+    TabOrder = 6
+    object Edit_addressregister: TEdit
+      Left = 16
+      Height = 37
+      Hint = 'Paste Base Address here,'#10'0x is auto removed, so is also eol chars.'
+      Top = 24
+      Width = 152
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '00000000'
+    end
+    object Label_registeraddress: TLabel
+      Left = 16
+      Height = 20
+      Top = 4
+      Width = 111
+      Caption = 'Register address:'
+      ParentColor = False
+    end
+    object Edit_registeroffset: TEdit
+      Left = 16
+      Height = 37
+      Hint = 'Enter offset to Register Address, '#10'unless already given above.'
+      Top = 78
+      Width = 80
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = '00'
+    end
+    object Label_registeroffset: TLabel
+      Left = 16
+      Height = 20
+      Top = 60
+      Width = 45
+      Caption = 'Offset:'
+      ParentColor = False
+    end
+    object Button_set: TButton
+      Left = 112
+      Height = 25
+      Top = 83
+      Width = 56
+      Caption = 'Set'
+      OnClick = Button_setClick
+      TabOrder = 2
+    end
+    object Button_paste: TButton
+      Left = 176
+      Height = 25
+      Top = 30
+      Width = 75
+      Caption = '<Paste'
+      OnClick = Button_pasteClick
+      TabOrder = 3
+    end
+  end
+  object Edit_data: TEdit
+    Left = 352
+    Height = 37
+    Hint = 'Data field'#10'For read commands, this field contains no data.'#10'For write commands, this field contains the data to be written to the register.'#10'Size for read commands = 0 bytes.'#10'Size for write commands = the number of bytes indicated in the DataLen field of the'#10'frame.'
+    Top = 40
+    Width = 160
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    Text = '01000000'
+  end
+  object Label_data: TLabel
+    Left = 352
+    Height = 20
+    Top = 21
+    Width = 29
+    Caption = 'Data'
+    ParentColor = False
+  end
+  object Edit_BFE: TEdit
+    Left = 664
+    Height = 37
+    Hint = 'Binary Frame End field'#10'Identifies the end of a binary frame.'#10'Size = 1 byte'#10'The value of the BFE byte is always 0x03.'
+    Top = 40
+    Width = 30
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 8
+    Text = '03'
+  end
+  object Label_BFE: TLabel
+    Left = 664
+    Height = 20
+    Top = 21
+    Width = 25
+    Caption = 'BFE'
+    ParentColor = False
+  end
+  object Edit_BCC: TEdit
+    Left = 544
+    Height = 37
+    Hint = 'Block Check Character field'#10'The use of a block check character in read/write commands is optional.'#10'If bit 2 of the FTF field is 0, the BCC is not used and the BCC field will contain no data.'#10'If bit 2 of the FTF field is 1, the BCC field will contain the block check character.'#10'Size = 0 bytes if bit 2 of the FTF field is 0'#10'1 byte if bit 2 of the FTF field is 1'#10'The block check character is the exclusive-or sum (XOR sum) of the bytes in the FTF,'#10'DataLen, Address, and Data fields '
+    Top = 40
+    Width = 80
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 9
+  end
+  object Label_BCC: TLabel
+    Left = 544
+    Height = 20
+    Top = 21
+    Width = 27
+    Caption = 'BCC'
+    ParentColor = False
+  end
+  object GroupBox_data: TGroupBox
+    Left = 568
+    Height = 105
+    Top = 79
+    Width = 128
+    Caption = 'Data'
+    ClientHeight = 84
+    ClientWidth = 126
+    TabOrder = 10
+    object ComboBox_datavalue: TComboBox
+      Left = -72
+      Height = 36
+      Hint = 'Values can be edited directly in the'#10'Data field as well.'
+      Top = 25
+      Width = 100
+      ItemHeight = 0
+      OnChange = ComboBox_datavalueChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 0
+      Visible = False
+    end
+    object Label_datavalue: TLabel
+      Left = 8
+      Height = 20
+      Top = 5
+      Width = 71
+      Caption = 'Data value:'
+      ParentColor = False
+    end
+    object Label_decimal: TLabel
+      Left = 8
+      Height = 20
+      Top = 63
+      Width = 51
+      Caption = 'Decimal'
+      ParentColor = False
+    end
+    object SpinEdit_data: TSpinEdit
+      Left = 8
+      Height = 37
+      Hint = 'Values can be edited directly in the'#10'Data field as well.'
+      Top = 25
+      Width = 104
+      MaxValue = 2147483647
+      OnChange = SpinEdit_dataChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Value = 1
+    end
+  end
+  object GroupBox_serialcommand: TGroupBox
+    Left = 288
+    Height = 112
+    Top = 200
+    Width = 408
+    Caption = 'Serial Command'
+    ClientHeight = 91
+    ClientWidth = 406
+    TabOrder = 11
+    object Edit_serialcommand: TEdit
+      Left = 16
+      Height = 37
+      Top = 24
+      Width = 280
+      TabOrder = 0
+    end
+    object Button_toClipboard: TButton
+      Left = 303
+      Height = 25
+      Hint = 'Copy Serial Command to Clipboard.'
+      Top = 30
+      Width = 88
+      Caption = '>Clipboard'
+      OnClick = Button_toClipboardClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object CheckBox_space: TCheckBox
+      Left = 16
+      Height = 24
+      Top = 61
+      Width = 197
+      Caption = 'Space between hex values'
+      OnChange = CheckBox_spaceChange
+      TabOrder = 2
+    end
+    object CheckBox_addserial_cmdB: TCheckBox
+      Left = 224
+      Height = 24
+      Hint = 'Useful if using EDT framegrabber.'
+      Top = 60
+      Width = 157
+      Caption = 'Add serial__cmd -B ""'
+      Enabled = False
+      OnChange = CheckBox_addserial_cmdBChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+    end
+  end
+  object MainMenu: TMainMenu
+    left = 296
+    object MenuItem_File: TMenuItem
+      Caption = 'File'
+      object MenuItem_exit: TMenuItem
+        Caption = 'Exit'
+        OnClick = MenuItem_exitClick
+      end
+    end
+    object MenuItem_Help: TMenuItem
+      Caption = 'Help'
+      object MenuItem_About: TMenuItem
+        Caption = 'About'
+        OnClick = MenuItem_aboutClick
+      end
+    end
+  end
+end
